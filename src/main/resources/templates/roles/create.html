@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ajouter un Rôle</title>
+</head>
+<body>
+<h1>Ajouter un Rôle</h1>
+<form th:action="@{/roles/create}" method="post">
+    <label for="libelle">Libellé :</label>
+    <input type="text" id="libelle" name="libelle" required><br>
+
+    <button type="submit">Enregistrer</button>
+</form>
+<a href="/roles">Annuler</a>
+</body>
+</html>

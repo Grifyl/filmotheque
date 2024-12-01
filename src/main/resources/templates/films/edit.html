@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier un Film</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+<h1>Modifier un Film</h1>
+<form th:action="@{/films/edit}" method="post">
+    <input type="hidden" th:value="${film.id}" name="id">
+
+    <label for="titre">Titre :</label>
+    <input type="text" id="titre" name="titre" th:value="${film.titre}" required><br>
+
+    <label for="dateSortie">Date de Sortie :</label>
+    <input type="date" id="dateSortie" name="dateSortie" th:value="${film.dateSortie}" required><br>
+
+    <label for="description">Description :</label>
+    <textarea id="description" name="description" th:text="${film.description}"></textarea><br>
+
+    <label for="realisateur">Réalisateur :</label>
+    <select id="realisateur" name="realisateur.id" required>
+        <option th:each="realisateur : ${realisateurs}"
+                th:value="${realisateur.id}"
+                th:text="${realisateur.prenom} + ' ' + ${realisateur.nom}"
+                th:selected="${film.realisateur != null and film.realisateur.id == realisateur.id}">
+        </option>
+    </select><br>
+
+    <label for="categories">Catégories :</label><br>
+    <div th:each="categorie : ${categories}">
+        <input type="checkbox" id="categorie" name="categorieIds" th:value="${categorie.id}"
+               th:checked="${film.categories.contains(categorie)}">
+        <label th:for="categorie" th:text="${categorie.libelle}"></label><br>
+    </div>
+
+    <button type="submit" class="btn btn-success mx-2">Enregistrer</button>
+</form>
+<a href="/films" class="btn btn-danger btn-sm">Annuler</a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

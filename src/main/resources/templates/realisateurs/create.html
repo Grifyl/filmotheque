@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Réalisateur</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+<h1>Ajouter un Réalisateur</h1>
+<form th:action="@{/realisateurs/create}" method="post">
+    <label for="prenom">Prénom :</label>
+    <input type="text" id="prenom" name="prenom" required><br>
+
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" required><br>
+
+    <label for="dateNaissance">Date de Naissance :</label>
+    <input type="date" id="dateNaissance" name="dateNaissance" required><br>
+
+    <button type="submit">Enregistrer</button>
+</form>
+<a href="/realisateurs">Annuler</a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
