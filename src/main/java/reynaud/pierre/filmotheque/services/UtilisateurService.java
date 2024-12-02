@@ -1,6 +1,5 @@
 package reynaud.pierre.filmotheque.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reynaud.pierre.filmotheque.entites.Utilisateur;
 import reynaud.pierre.filmotheque.repositories.UtilisateurRepository;
@@ -30,5 +29,9 @@ public class UtilisateurService {
 
   public void deleteById(Long id) {
     utilisateurRepository.deleteById(id);
+  }
+
+  public Utilisateur findByEmailAndMotDePasse(String email, String password) {
+    return utilisateurRepository.findByEmailAndMotDePasse(email, password);
   }
 }

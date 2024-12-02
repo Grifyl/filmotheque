@@ -13,6 +13,10 @@
         <a href="/categories" class="btn btn-success mx-2">Voir les Catégories</a>
         <a href="/realisateurs" class="btn btn-warning mx-2">Voir les Réalisateurs</a>
     </div>
+    <div class="d-flex justify-content-end">
+        <span th:if="${#authentication.principal}" class="me-3">Connecté en tant que <strong th:text="${#authentication.principal.email}"></strong></span>
+        <a th:if="${#authentication.principal}" href="/logout" class="btn btn-danger">Se Déconnecter</a>
+    </div>
 </div>
 </body>
 </html>

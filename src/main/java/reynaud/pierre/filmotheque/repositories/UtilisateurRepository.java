@@ -4,4 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import reynaud.pierre.filmotheque.entites.Utilisateur;
 
 public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> {
+  Utilisateur findByEmailAndMotDePasse(String email, String motDePasse);
 }
